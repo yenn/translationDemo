@@ -21,6 +21,7 @@ Technologies
 * Grunt - js based build tool
 * Mocha - unit testing
 * JsLint - check code guidelines
+* jQuery - DOM manipulation and utilities
 
 Architecture
 -------------

@@ -1,0 +1,22 @@
+{
+  "name": "oractrans",
+  "description": "translation test task",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-uglify": "0.2.2",
+    "grunt-mocha-test": "~0.7.0",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-concat": "~0.3.0"
+  },
+  "author": "Jan Pojer <jpojer@gmail.com>",
+  "homepage": "oractranslator.herokuapp.com",
+  "repository": {
+    "url": ""
+  },
+  "dependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

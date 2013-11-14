@@ -1,0 +1,85 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+.container h3.spacer, .container div.spacer {
+    margin-bottom: 15px;
+}
+
+.jumbotron {
+    padding-bottom: 120px;
+}
+
+.container div.alert {
+    font-size: 12px;
+}
+
+#btn_to_trans {
+    padding-left:330px;
+}
+
+#trans_result {
+    margin-left:3px;
+}
+#sidebar {
+    margin-top: 10px;
+    max-height: 600px;
+    overflow: auto;
+}
+.translation-res {
+    margin-left: 10px;
+    margin-right: 0;
+    background-color: #fff;
+    border-width: 1px;
+    border-color: #ddd;
+    border-radius: 4px 4px 0 0;
+    box-shadow: none;
+}
+.translation-res {
+    position: relative;
+    padding: 45px 15px 15px;
+    margin: 0 -15px 15px;
+    background-color: #fafafa;
+    /*box-shadow: inset 0 3px 6px rgba(0,0,0,.05);*/
+    border-color: #e5e5e5 #eee #eee;
+    border-style: solid;
+    border-width: 1px 0;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.translation-res:after {
+    content: "Translation:";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,7 +5,12 @@
 var APP = APP || {};
 APP.exception = {};
 
-
+/**
+ * General custom message
+ *
+ * @param message
+ * @constructor
+ */
 APP.exception.CustomException = function(message) {
     this.type = "CustomException";
     this.name = "CustomException";
@@ -15,21 +20,37 @@ APP.exception.CustomException.prototype.toString = function() {
         return "["+this.name+"] " + this.message;
 }
 
-
+/**
+ * Exception that signals that library has not been found
+ *
+ * @param message
+ * @constructor
+ */
 APP.exception.LibraryNotFound = function(message) {
     this.name = "LibraryNotFound";
     this.message = message;
 };
 APP.exception.LibraryNotFound.prototype = new APP.exception.CustomException();
 
-
+/**
+ * Fired when not supported functionality has been found.
+ *
+ * @param message
+ * @constructor
+ */
 APP.exception.NotSupported = function(message) {
     this.name = "NotSupported";
     this.message = message;
 };
 APP.exception.NotSupported.prototype = new APP.exception.CustomException();
 
-
+/**
+ * Handles errors coming from Translation engine
+ *
+ * @param code
+ * @param details
+ * @constructor
+ */
 APP.exception.TranslationError = function(code, details) {
     this.name = "TranslationError";
     this.code = parseInt(code);

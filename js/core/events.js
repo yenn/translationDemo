@@ -3,6 +3,9 @@
  */
 
 APP.events = {
+    /**
+     * Event manipulates notification placement
+     */
     notification: {
         type: "Notification",
         event: function(message, type) {
@@ -31,11 +34,17 @@ APP.events = {
             }
         }
     },
+    /**
+     * Event removes displayed notification
+     */
     notificationRemove: {
         type: "NotificationRemove",
         event: function() { return new CustomEvent("NotificationRemove",{})},
         handler: function(event) {$('#messages').html("");}
     },
+    /**
+     * Event loading select with initial values
+     */
     loadSelects: {
         type: "LoadSelects",
         event: function() { return new CustomEvent("LoadSelects",{})},
@@ -47,6 +56,9 @@ APP.events = {
             });
         }
     },
+    /**
+     * Event fired when onchange takes place on source selects and loads target select with corresponding values
+     */
     selectChange: {
         type: "SelectChange",
         event: function(value, type) { return new CustomEvent("SelectChange",{
@@ -69,6 +81,9 @@ APP.events = {
              */
         }
     },
+    /**
+     * Event handles adding new search result to local storage
+     */
     storageAdd: {
         type: "StorageAdd",
         event: function(key, content, lang_src, lang_trg) { return new CustomEvent(
@@ -87,6 +102,9 @@ APP.events = {
             document.dispatchEvent(APP.events.storageRefresh.event());
         }
     },
+    /**
+     * Event refreshes display of local storage
+     */
     storageRefresh: {
         type: "StorageRefresh",
         event: function() { return new CustomEvent("StorageRefresh",{})},
@@ -106,6 +124,9 @@ APP.events = {
 
         }
     },
+    /**
+     * Event displays past search in main translation form
+     */
     flashBackSearch: {
         type: "FlashBackSearch",
         event: function(from, to, sourceTarget) { return new CustomEvent("FlashBackSearch",{
@@ -127,6 +148,9 @@ APP.events = {
 
         }
     },
+    /**
+     * Event handles translation form submit action
+     */
     submit: {
         type: "TranslateFormSubmit",
         event: new CustomEvent(
@@ -154,7 +178,6 @@ APP.events = {
             submit_btn.addClass('btn-danger').text("Translating...");
 
             try {
-                //console.log(payload + " " + source + " " + target);
                 APP.apertiumClient.translate(payload, source, target, function(response) {
                     try {
                         if (response.error) {
@@ -169,14 +192,10 @@ APP.events = {
                         finishProgress();
                     }
                 });
-
             } catch (e) {
                 document.dispatchEvent(APP.events.notification.event(e.toString(), "error"));
                 finishProgress();
             }
-
-
         }
-        //event to create and clear message
     }
 }

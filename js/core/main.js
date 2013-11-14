@@ -1,3 +1,6 @@
+/**
+ * Object handles interaction with translation engine
+ */
 APP.apertiumClient = function ($) {
     if (apertium == undefined) {
         throw new APP.exception.LibraryNotFound("Apertium client was not loaded");
@@ -24,6 +27,10 @@ APP.apertiumClient = function ($) {
 
     };
 }(jQuery);
+
+/**
+ * Object handles working with supported language pairs
+ */
 APP.languages = function($){
     var languagePairs = APP.apertiumClient.getPairs()
         languages = {},
@@ -58,6 +65,9 @@ APP.languages = function($){
         }
     }
 }(jQuery);
+/**
+ * Object to handle manipulation of local storage
+ */
 APP.storage = function ($) {
     if (typeof(localStorage)  == undefined) {
         throw new APP.exception.NotSupported("Local storage is not supported in your browser. What about a modern browser?");

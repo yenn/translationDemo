@@ -7,9 +7,11 @@ Translation Demo App
 Prerequisites
 -------------
 NPM
-Grunt-cli
+
+Grunt-cli (sudo npm install -g grunt-cli)
 
 Install
 -------------
 > npm install
+
 > grunt

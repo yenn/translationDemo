@@ -28,11 +28,9 @@ APP.languages = function($){
     var languagePairs = APP.apertiumClient.getPairs()
         languages = {},
         listingSources = [];
-        //listingTargets = [];
-///console.log(languagePairs);
+
     for(var i = 0; i < languagePairs.length; i++) {
         var pair = languagePairs[i];
-        //console.log(pair);
         if (languages.hasOwnProperty(pair.source)) {
             if ($.inArray(pair.target, languages[pair.source]) == -1) {
                 languages[pair.source].push(pair.target);
@@ -47,7 +45,6 @@ APP.languages = function($){
         }
 
     }
-    console.log(languages);
     return {
         get: function(lang) {
             return languages[lang];
@@ -78,7 +75,6 @@ APP.storage = function ($) {
             try {
                 var timestamp = genKey();
                 localStorage.setItem(timestamp, JSON.stringify({key: key, data: data, lang:from+"|"+to}));
-                console.log(timestamp + " " + key + " " + data);
             } catch (e) {
                 if (e == QUOTA_EXCEEDED_ERR) {
                     throw new APP.exception.CustomException("Storage quota exceeded. Too bad.");
@@ -93,7 +89,6 @@ APP.storage = function ($) {
         },
         list: function() {
             var data = [];
-            console.log(localStorage);
             for(var i in localStorage){
                 data.push(i);
             }
@@ -105,11 +100,7 @@ APP.storage = function ($) {
         }
     }
 }(jQuery)
-/*
-document.addEventListener(APP.events.submit.type, APP.events.submit.handler, false);
-document.addEventListener(APP.events.notification.type, APP.events.notification.handler, false);
-document.addEventListener(APP.events.notificationRemove.type, APP.events.notificationRemove.handler, false);
-*/
+
 //register listeners
 for(var key in APP.events) {
     document.addEventListener(APP.events[key].type, APP.events[key].handler, false);

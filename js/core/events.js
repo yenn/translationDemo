@@ -45,7 +45,6 @@ APP.events = {
                     $(this).append("<option value='"+value+"'>"+(APP.dict.hasOwnProperty(value)?APP.dict[value]:value)+"</option>");
                 })
             });
-            //$('#messages').html("");
         }
     },
     selectChange: {
@@ -117,8 +116,10 @@ APP.events = {
             }
         })},
         handler: function(event) {
-            var split = event.detail.sourceTarget.split('|');
-            $('#translation_content').val(event.detail.from);
+            var split = event.detail.sourceTarget.split('|'),
+                text = event.detail.from.substring(0, event.detail.from.indexOf('(') -1);
+
+            $('#translation_content').val(text);
             $("#source_lang").val(split[0]),
             $("#target_lang").val(split[1]),
             $("#translation_result").val(event.detail.to);
@@ -152,13 +153,10 @@ APP.events = {
             //init procedure
             submit_btn.addClass('btn-danger').text("Translating...");
 
-            console.log('translation initiated');
             try {
-                console.log(payload + " " + source + " " + target);
+                //console.log(payload + " " + source + " " + target);
                 APP.apertiumClient.translate(payload, source, target, function(response) {
-                    console.log(response);
                     try {
-
                         if (response.error) {
                             throw new APP.exception.TranslationError(response.error.code, response.error.message);
                         }
@@ -174,7 +172,6 @@ APP.events = {
 
             } catch (e) {
                 document.dispatchEvent(APP.events.notification.event(e.toString(), "error"));
-                //console.log(e.message);
                 finishProgress();
             }
 
